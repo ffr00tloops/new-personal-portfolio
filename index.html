@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Banuelos - Web Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">DB</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="line">Hi, I'm</span>
+                    <span class="line highlight">Daniel Banuelos</span>
+                    <span class="line">Web Developer</span>
+                </h1>
+                <p class="hero-subtitle">Crafting digital experiences with code and creativity</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">Passionate web developer with a love for creating beautiful, functional, and user-friendly websites.</p>
+                    <p>I specialize in building responsive web applications that not only look great but also provide exceptional user experiences. With a keen eye for design and a strong foundation in modern web technologies, I bring ideas to life through clean, efficient code.</p>
+                    <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or working on personal side projects that challenge my skills.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/personalpicture.png" alt="Daniel Banuelos" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-project="1">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">Live Demo</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                        <img src="images/2dgame.png" alt="2D Platforming Game" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">2D Platforming Game</h3>
+                        <p class="project-description">A Simple Platforming Hack and Slash Game made using Godot Engine</p>
+                        <div class="project-tags">
+                            <span class="tag">Godot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-project="2">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">Live Demo</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                        <img src="images/triapora.png" alt="Triapora Security Agency Business Page" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Triapora Security Agency Business Page</h3>
+                        <p class="project-description">Full Fleged Website Made using Oak Harbor Designs Web Design Theme Clean and Performant</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">Javascript</span>
+                            <span class="tag">CSS3/SCSS</span>
+                            <span class="tag">Formspree</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-project="3">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">Live Demo</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                        <img src="images/chessboard.gif" alt="Chessboard" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Chessboard</h3>
+                        <p class="project-description">Chessboard made using Vanilla HTML, CSS, and JavaScript</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML,CSS and Javascript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-project="4">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">Live Demo</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                        <img src="images/redditapi.png" alt="Reddit API integration" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Reddit API integration</h3>
+                        <p class="project-description">Simple Reddit API integration made using React.JS</p>
+                        <div class="project-tags">
+                            <span class="tag">React.js</span>
+                            <span class="tag">Reddit API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-project="5">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">Live Demo</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                        <img src="images/atrui.png" alt="Atrui" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Atrui</h3>
+                        <p class="project-description">Gamified Full Stack Charity Fundraising Platform Made using Gatsby.js and TailwindCSS (Capstone Project)</p>
+                        <div class="project-tags">
+                            <span class="tag">Gatsby.js</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">DigitalOcean</span>
+                            <span class="tag">TailwindCSS</span>
+                            <span class="tag">Stripe</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-project="6">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">Live Demo</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                        <img src="images/qrgenerator.png" alt="QR Code Generator" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">QR Code Generator</h3>
+                        <p class="project-description">Simple QR Code Generator made using HTML, CSS, and JavaScript</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML,CSS and Javascript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 class="category-title">Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🌐</span>
+                                <span class="skill-icon-text">HTML</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🎨</span>
+                                <span class="skill-icon-text">CSS</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">⚡</span>
+                                <span class="skill-icon-text">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">⚛️</span>
+                                <span class="skill-icon-text">React.js</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">💨</span>
+                                <span class="skill-icon-text">TailwindCSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">Backend</h3>
+                    <div class="skill-items">
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🟢</span>
+                                <span class="skill-icon-text">Node.js</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🔷</span>
+                                <span class="skill-icon-text">C#</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🔵</span>
+                                <span class="skill-icon-text">.NET</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">Tools & Platforms</h3>
+                    <div class="skill-items">
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🔀</span>
+                                <span class="skill-icon-text">Git</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">💻</span>
+                                <span class="skill-icon-text">VS Code</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🎭</span>
+                                <span class="skill-icon-text">Figma</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">📝</span>
+                                <span class="skill-icon-text">WordPress</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🎯</span>
+                                <span class="skill-icon-text">Divi</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🧩</span>
+                                <span class="skill-icon-text">Elementor</span>
+                            </div>
+                        </div>
+                        <div class="skill-icon-item">
+                            <div class="skill-icon-wrapper">
+                                <span class="skill-icon-emoji">🔍</span>
+                                <span class="skill-icon-text">SEO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-intro">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:danielbanuelosdb670@gmail.com" class="contact-link">danielbanuelosdb670@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p><a href="https://www.linkedin.com/in/daniel-banuelos-857194222/" target="_blank" class="contact-link">linkedin.com/in/daniel-banuelos-857194222</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🐙</div>
+                            <div>
+                                <h4>GitHub</h4>
+                                <p><a href="https://github.com/ffr00tloops" target="_blank" class="contact-link">github.com/ffr00tloops</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form action="https://formspree.io/f/mvgjjyzg" method="POST" class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <div id="form-status" class="form-status"></div>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Daniel Banuelos. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/ffr00tloops" target="_blank" class="social-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/daniel-banuelos-857194222/" target="_blank" class="social-link">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
