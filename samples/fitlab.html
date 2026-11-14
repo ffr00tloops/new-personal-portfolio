@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FITLAB Gym — 50% off your first month (sample site)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bk:#0c0c0c;--bk2:#151515;--line:#262626;--lime:#d4ff3a;--muted:#9a9a9a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,sans-serif;background:var(--bk);color:#fff;line-height:1.6;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  .big{font-family:Anton,Impact,sans-serif;text-transform:uppercase;line-height:.9;letter-spacing:.01em}
+  .ticker{background:var(--lime);color:var(--bk);overflow:hidden;white-space:nowrap;font-weight:900;font-size:.85rem;letter-spacing:.1em}
+  .ticker div{display:inline-block;padding:8px 0;animation:tick 22s linear infinite}
+  @keyframes tick{to{transform:translateX(-50%)}}
+  nav{display:flex;justify-content:space-between;align-items:center;height:76px}
+  .logo{font-family:Anton;font-size:1.8rem;letter-spacing:.04em}
+  .logo span{color:var(--lime)}
+  .links{display:flex;gap:30px;font-weight:500;color:var(--muted);align-items:center}
+  .links a:hover{color:#fff}
+  .btn{display:inline-block;background:var(--lime);color:var(--bk);font-weight:900;padding:14px 26px;border:none;cursor:pointer;font:inherit;font-weight:900;text-transform:uppercase;letter-spacing:.05em;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+  .btn:hover{background:#e6ff7a}
+  .btn.out{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff;clip-path:none}
+  .hero{padding:40px 0 70px;position:relative}
+  .hero h1{font-size:clamp(3.2rem,15vw,12rem);font-style:italic}
+  .hero h1 span{color:var(--lime)}
+  .hero h1 .o{-webkit-text-stroke:2px #fff;color:transparent}
+  .hero .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:30px;flex-wrap:wrap}
+  .hero p{max-width:420px;color:var(--muted);font-size:1.1rem}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .stamp{position:absolute;right:4%;top:20px;width:150px;height:150px;border-radius:50%;background:var(--lime);color:var(--bk);display:grid;place-items:center;text-align:center;transform:rotate(12deg);font-weight:900;line-height:1}
+  .stamp b{font-family:Anton;font-size:3rem;display:block}
+  .count{display:flex;gap:10px;margin-top:14px}
+  .count div{background:var(--bk2);border:1px solid var(--line);padding:10px 14px;text-align:center;min-width:70px}
+  .count b{font-family:Anton;font-size:1.8rem;display:block;line-height:1;color:var(--lime)}
+  .count small{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+  section{padding:90px 0;border-top:1px solid var(--line)}
+  .h2{font-size:clamp(3rem,7vw,5.5rem);margin-bottom:36px}
+  .h2 span{color:var(--lime)}
+  .days{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+  .days button{background:var(--bk2);border:1px solid var(--line);color:var(--muted);font:inherit;font-weight:700;padding:10px 18px;cursor:pointer;text-transform:uppercase;letter-spacing:.06em}
+  .days button.on{background:var(--lime);color:var(--bk);border-color:var(--lime)}
+  table{width:100%;border-collapse:collapse}
+  td{padding:18px 12px;border-bottom:1px solid var(--line);font-size:1rem}
+  td:first-child{font-family:Anton;font-size:1.4rem;color:var(--lime);width:120px}
+  td b{font-size:1.1rem}
+  td small{display:block;color:var(--muted)}
+  .lvl{font-size:.75rem;font-weight:700;border:1px solid var(--line);padding:3px 8px;text-transform:uppercase;letter-spacing:.08em}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .tier{background:var(--bk2);border:1px solid var(--line);padding:32px;position:relative}
+  .tier.hot{border-color:var(--lime);background:linear-gradient(180deg,#1a2000,var(--bk2))}
+  .tier.hot::before{content:"MOST POPULAR";position:absolute;top:-12px;left:32px;background:var(--lime);color:var(--bk);font-size:.75rem;font-weight:900;padding:3px 10px;letter-spacing:.08em}
+  .tier h3{font-family:Anton;font-size:2rem;text-transform:uppercase}
+  .tier .pr{font-family:Anton;font-size:3.4rem;line-height:1;margin:10px 0 2px}
+  .tier .pr s{font-size:1.2rem;color:var(--muted);margin-left:8px}
+  .tier .per{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+  .tier ul{list-style:none;margin-bottom:26px}
+  .tier li{padding:7px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+  .tier li::before{content:"■ ";color:var(--lime);font-size:.7rem}
+  .bmi{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .bmi p{color:var(--muted)}
+  .calc{background:var(--bk2);border:1px solid var(--line);padding:30px;display:grid;gap:14px}
+  .calc label{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .calc input{width:100%;background:var(--bk);border:1px solid var(--line);color:#fff;padding:14px;font:inherit;font-size:1.1rem;margin-top:6px}
+  .calc .res{border-top:1px solid var(--line);padding-top:14px}
+  .calc .res b{font-family:Anton;font-size:3rem;color:var(--lime);line-height:1}
+  .coaches{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .coach .pic{aspect-ratio:3/4;background:var(--g);position:relative;overflow:hidden}
+  .coach .pic::after{content:"";position:absolute;left:28%;right:28%;top:16%;height:26%;border-radius:50%;background:rgba(0,0,0,.25)}
+  .coach h3{font-family:Anton;font-size:1.4rem;text-transform:uppercase;margin-top:12px}
+  .coach small{color:var(--lime);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+  .join{background:var(--lime);color:var(--bk);padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .join h2{font-size:clamp(3rem,6vw,5rem)}
+  .join form{display:grid;gap:10px}
+  .join input,.join select{padding:15px;border:2px solid var(--bk);background:#efffb3;font:inherit;font-weight:500}
+  .join .btn{background:var(--bk);color:var(--lime)}
+  .ok{display:none;font-weight:700}
+  footer{padding:40px 0 90px;color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .demo{position:fixed;left:14px;bottom:14px;z-index:99;background:#fff;color:#111;font:500 12px Inter,sans-serif;padding:8px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+  .demo a{color:#1f9d55;text-decoration:underline}
+  @media(max-width:900px){.tiers,.bmi,.join{grid-template-columns:1fr}.coaches{grid-template-columns:1fr 1fr}.links a:not(.btn){display:none}.stamp{width:110px;height:110px;top:-10px}.stamp b{font-size:2.2rem}.join{padding:34px 22px}}
+  @media(max-width:560px){.dk-bar span{display:none}}
+</style>
+</head>
+<body>
+<div class="dk-bar" style="position:relative;z-index:1000;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 16px;background:#0d0f0e;color:#e9efea;font:500 13px/1.3 system-ui,-apple-system,'Segoe UI',sans-serif;border-bottom:2px solid #3ddc84">
+  <a href="../index.html#portfolio" style="display:inline-flex;align-items:center;gap:8px;background:#3ddc84;color:#04120a;font-weight:700;padding:7px 14px;border-radius:999px;text-decoration:none;white-space:nowrap">← Back to danbwebdev.online</a>
+  <span style="opacity:.75;text-align:right">Sample site for a made-up business · built by Daniel Banuelos</span>
+</div>
+<div class="ticker"><div>⚡ 50% OFF YOUR FIRST MONTH · OPEN 24/7 · FREE BODY SCAN · NO JOINING FEE · ⚡ 50% OFF YOUR FIRST MONTH · OPEN 24/7 · FREE BODY SCAN · NO JOINING FEE · ⚡ 50% OFF YOUR FIRST MONTH · OPEN 24/7 · FREE BODY SCAN · NO JOINING FEE · ⚡ 50% OFF YOUR FIRST MONTH · OPEN 24/7 · FREE BODY SCAN · NO JOINING FEE · </div></div>
+<div class="wrap">
+  <nav><a class="logo" href="#">FIT<span>LAB</span></a><div class="links"><a href="#classes">Classes</a><a href="#plans">Plans</a><a href="#coaches">Coaches</a><a class="btn" href="#join">Join now</a></div></nav>
+  <div class="hero">
+    <div class="stamp"><div><b>50%</b>OFF<br>1ST MONTH</div></div>
+    <h1 class="big">Stronger<br><span>starts</span><br><span class="o">today.</span></h1>
+    <div class="row">
+      <p>24/7 access, 40+ weekly classes and coaches who actually know your name. Promo ends in:</p>
+      <div>
+        <div class="count" id="count"><div><b id="cd">0</b><small>days</small></div><div><b id="ch">0</b><small>hrs</small></div><div><b id="cm">0</b><small>min</small></div><div><b id="cs">0</b><small>sec</small></div></div>
+      </div>
+      <div class="ctas"><a class="btn" href="#join">Claim 50% off</a><a class="btn out" href="#classes">See classes</a></div>
+    </div>
+  </div>
+</div>
+
+<section id="classes"><div class="wrap">
+  <h2 class="big h2">Class <span>schedule</span></h2>
+  <div class="days" id="days"></div>
+  <table id="sched"></table>
+</div></section>
+
+<section id="plans"><div class="wrap">
+  <h2 class="big h2">Pick your <span>plan</span></h2>
+  <div class="tiers">
+    <div class="tier"><h3>Basic</h3><div class="pr">₱999<s>₱1,999</s></div><div class="per">first month, then ₱1,999/mo</div><ul><li>Gym floor access</li><li>Off-peak hours (6am–4pm)</li><li>Locker &amp; showers</li></ul><a class="btn out" href="#join" data-plan="Basic">Choose basic</a></div>
+    <div class="tier hot"><h3>Pro</h3><div class="pr">₱1,499<s>₱2,999</s></div><div class="per">first month, then ₱2,999/mo</div><ul><li>24/7 access</li><li>Unlimited group classes</li><li>Free body scan every month</li><li>1 personal training session</li></ul><a class="btn" href="#join" data-plan="Pro">Choose pro</a></div>
+    <div class="tier"><h3>Elite</h3><div class="pr">₱2,199<s>₱4,399</s></div><div class="per">first month, then ₱4,399/mo</div><ul><li>Everything in Pro</li><li>4 PT sessions / month</li><li>Nutrition plan</li><li>Bring a friend free on weekends</li></ul><a class="btn out" href="#join" data-plan="Elite">Choose elite</a></div>
+  </div>
+</div></section>
+
+<section><div class="wrap bmi">
+  <div><h2 class="big h2" style="margin-bottom:16px">Know your <span>numbers</span></h2><p>Quick BMI check — then come in for a free full body scan to see muscle, fat and water percentage.</p></div>
+  <div class="calc">
+    <label>Height (cm)<input type="number" id="hgt" value="170" min="100" max="230"></label>
+    <label>Weight (kg)<input type="number" id="wgt" value="70" min="30" max="250"></label>
+    <div class="res"><b id="bmi">24.2</b><div id="bmiTxt" style="color:var(--muted)">Normal weight</div></div>
+  </div>
+</div></section>
+
+<section id="coaches"><div class="wrap">
+  <h2 class="big h2">Meet the <span>coaches</span></h2>
+  <div class="coaches">
+    <div class="coach"><div class="pic" style="--g:linear-gradient(160deg,#d4ff3a,#3a4a00)"></div><h3>Coach Rico</h3><small>Strength &amp; powerlifting</small></div>
+    <div class="coach"><div class="pic" style="--g:linear-gradient(160deg,#5a5a5a,#1a1a1a)"></div><h3>Coach Bea</h3><small>HIIT &amp; conditioning</small></div>
+    <div class="coach"><div class="pic" style="--g:linear-gradient(160deg,#b9e62f,#20280a)"></div><h3>Coach Jake</h3><small>Boxing &amp; Muay Thai</small></div>
+    <div class="coach"><div class="pic" style="--g:linear-gradient(160deg,#777,#222)"></div><h3>Coach Lianne</h3><small>Yoga &amp; mobility</small></div>
+  </div>
+</div></section>
+
+<section id="join" style="border:none;padding-top:30px"><div class="wrap">
+  <div class="join">
+    <h2 class="big">Your first month,<br>half off.</h2>
+    <form id="jf">
+      <input placeholder="Full name" required>
+      <input placeholder="Mobile number" required>
+      <select id="plan"><option>Pro</option><option>Basic</option><option>Elite</option></select>
+      <button class="btn" type="submit">Claim my 50% off →</button>
+      <div class="ok" id="ok">🔥 You're in! (Demo site — nothing was sent.)</div>
+    </form>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>© 2026 FITLAB Gym · BGC, Taguig</span><span>Open 24/7 · hello@fitlabgym.com</span></div></footer>
+
+
+<script>
+  // countdown to end of month
+  const now=new Date(),end=new Date(now.getFullYear(),now.getMonth()+1,1);
+  function tick(){let t=Math.max(0,end-new Date())/1000;
+    cd.textContent=Math.floor(t/86400);ch.textContent=Math.floor(t%86400/3600);cm.textContent=Math.floor(t%3600/60);cs.textContent=Math.floor(t%60)}
+  tick();setInterval(tick,1000);
+  // schedule
+  const S={Mon:[['6:00 AM','Morning Burn','Coach Bea','All levels'],['12:00 PM','Lunch Lift','Coach Rico','Intermediate'],['7:00 PM','Boxing Basics','Coach Jake','Beginner']],
+    Tue:[['6:30 AM','Yoga Flow','Coach Lianne','All levels'],['6:00 PM','HIIT 45','Coach Bea','Advanced'],['8:00 PM','Muay Thai','Coach Jake','Intermediate']],
+    Wed:[['6:00 AM','Strength Club','Coach Rico','Intermediate'],['12:30 PM','Core Express','Coach Bea','All levels'],['7:00 PM','Mobility','Coach Lianne','All levels']],
+    Thu:[['6:30 AM','HIIT 45','Coach Bea','Advanced'],['6:00 PM','Powerlifting','Coach Rico','Advanced'],['8:00 PM','Boxing Sparring','Coach Jake','Advanced']],
+    Fri:[['6:00 AM','Morning Burn','Coach Bea','All levels'],['5:30 PM','Friday Pump','Coach Rico','All levels'],['7:30 PM','Yin Yoga','Coach Lianne','Beginner']],
+    Sat:[['8:00 AM','Bootcamp','Coach Bea','All levels'],['10:00 AM','Boxing Basics','Coach Jake','Beginner']],
+    Sun:[['9:00 AM','Recovery Yoga','Coach Lianne','All levels']]};
+  const days=document.getElementById('days'),sched=document.getElementById('sched');
+  const today=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][now.getDay()];
+  function show(d){[...days.children].forEach(b=>b.classList.toggle('on',b.textContent===d));
+    sched.innerHTML=S[d].map(c=>`<tr><td>${c[0]}</td><td><b>${c[1]}</b><small>${c[2]}</small></td><td style="text-align:right"><span class="lvl">${c[3]}</span></td></tr>`).join('')}
+  Object.keys(S).forEach(d=>{const b=document.createElement('button');b.textContent=d;b.onclick=()=>show(d);days.appendChild(b)});
+  show(today);
+  // BMI
+  function bmi(){const h=+hgt.value/100,w=+wgt.value;if(!h||!w)return;const v=w/(h*h);
+    document.getElementById('bmi').textContent=v.toFixed(1);
+    document.getElementById('bmiTxt').textContent=v<18.5?'Underweight':v<25?'Normal weight':v<30?'Overweight':'Obese range'}
+  hgt.oninput=wgt.oninput=bmi;bmi();
+  document.querySelectorAll('[data-plan]').forEach(a=>a.onclick=()=>document.getElementById('plan').value=a.dataset.plan);
+  document.getElementById('jf').onsubmit=e=>{e.preventDefault();document.getElementById('ok').style.display='block'};
+</script>
+</body>
+</html>

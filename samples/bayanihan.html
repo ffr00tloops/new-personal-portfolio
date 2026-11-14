@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bayanihan Builders — Construction & Renovation (sample site)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Archivo+Narrow:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#11161d;--navy2:#19212b;--steel:#2a3340;--amber:#f5a524;--text:#e9edf2;--muted:#94a0ae}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Archivo,sans-serif;background:var(--navy);color:var(--text);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Archivo Narrow",sans-serif;text-transform:uppercase;line-height:1;letter-spacing:-.01em}
+  .topbar{background:var(--amber);color:var(--navy);font-size:.82rem;font-weight:700}
+  .topbar .wrap{display:flex;justify-content:space-between;padding-top:7px;padding-bottom:7px;gap:12px;flex-wrap:wrap}
+  header{border-bottom:1px solid var(--steel);position:sticky;top:0;background:rgba(17,22,29,.95);z-index:10}
+  nav{display:flex;justify-content:space-between;align-items:center;height:72px}
+  .brand{font-weight:900;letter-spacing:.06em;font-size:1.1rem;display:flex;align-items:center;gap:10px}
+  .brand b{color:var(--amber)}
+  .brand .tri{width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:24px solid var(--amber)}
+  .links{display:flex;gap:30px;font-size:.92rem;color:var(--muted);align-items:center}
+  .links a:hover{color:#fff}
+  .btn{display:inline-block;background:var(--amber);color:var(--navy);font-weight:800;padding:14px 24px;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;border:none;cursor:pointer;font-family:inherit}
+  .btn:hover{background:#ffb846}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid var(--steel)}
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:560px}
+  .hero .l{padding:80px 50px 50px 0;display:flex;flex-direction:column}
+  .kicker{color:var(--amber);font-weight:700;letter-spacing:.14em;font-size:.8rem;text-transform:uppercase;margin-bottom:16px}
+  .hero h1{font-size:clamp(3rem,6.5vw,5.4rem);margin-bottom:22px}
+  .hero h1 span{color:var(--amber)}
+  .hero p{color:var(--muted);max-width:460px;font-size:1.08rem;margin-bottom:30px}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .stats{display:flex;gap:44px;margin-top:auto;padding-top:40px;border-top:1px solid var(--steel)}
+  .stats b{font-family:"Archivo Narrow";font-size:2.4rem;color:var(--amber);display:block;line-height:1}
+  .stats span{font-size:.85rem;color:var(--muted)}
+  .hero .r{background:repeating-linear-gradient(135deg,var(--navy2) 0 22px,#1d2632 22px 44px);position:relative;overflow:hidden}
+  .house{position:absolute;left:14%;right:14%;bottom:0;top:22%}
+  .house .roof{position:absolute;left:-8%;right:-8%;top:0;height:38%;background:linear-gradient(160deg,#3a4656,#f5a524);clip-path:polygon(50% 0,100% 100%,0 100%)}
+  .house .body{position:absolute;left:0;right:0;top:37%;bottom:0;background:linear-gradient(180deg,#2c3644,#222a35)}
+  .house .win{position:absolute;width:22%;height:18%;background:#ffd88a;box-shadow:0 0 30px rgba(245,165,36,.5);top:50%}
+  .house .w1{left:12%}.house .w2{right:12%}
+  .house .door{position:absolute;left:40%;width:20%;bottom:0;height:30%;background:var(--amber)}
+  .crane{position:absolute;right:8%;top:6%;width:6px;height:60%;background:var(--amber)}
+  .crane::before{content:"";position:absolute;top:0;right:-4px;width:160px;height:6px;background:var(--amber);transform:translateX(-100%)}
+  .crane::after{content:"";position:absolute;top:6px;left:-120px;width:2px;height:60px;background:#94a0ae}
+  section{padding:96px 0}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:48px;flex-wrap:wrap}
+  .head h2{font-size:clamp(2.2rem,4.5vw,3.4rem)}
+  .head p{color:var(--muted);max-width:400px}
+  .services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--steel);border-left:1px solid var(--steel)}
+  .svc{padding:34px;border-right:1px solid var(--steel);border-bottom:1px solid var(--steel);transition:background .2s}
+  .svc:hover{background:var(--navy2)}
+  .svc .n{font-family:"Archivo Narrow";color:var(--amber);font-size:1rem;margin-bottom:26px}
+  .svc h3{font-size:1.5rem;margin-bottom:10px}
+  .svc p{color:var(--muted);font-size:.95rem}
+  #projects{background:var(--navy2)}
+  .filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+  .filters button{font:inherit;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:transparent;border:1px solid var(--steel);color:var(--muted);padding:9px 16px;cursor:pointer}
+  .filters button.on{background:var(--amber);border-color:var(--amber);color:var(--navy)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .proj{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--c)}
+  .proj.hide{display:none}
+  .proj .shape{position:absolute;inset:0}
+  .proj .cap{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .proj .cap small{color:var(--amber);font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em}
+  .proj .cap h3{font-size:1.3rem;margin-top:4px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
+  .step{border-top:3px solid var(--amber);padding-top:20px}
+  .step::before{counter-increment:s;content:"0" counter(s);font-family:"Archivo Narrow";font-size:2.6rem;color:var(--steel);display:block;line-height:1;margin-bottom:12px}
+  .step h3{font-size:1.25rem;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:.93rem}
+  .quote{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;background:var(--amber);color:var(--navy);padding:56px}
+  .quote h2{font-size:clamp(2.2rem,4.5vw,3.4rem);margin-bottom:16px}
+  .quote ul{list-style:none;margin-top:22px;display:grid;gap:10px;font-weight:600}
+  .quote li::before{content:"✓  "}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  form .full{grid-column:1/-1}
+  label{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:5px}
+  input,select,textarea{width:100%;padding:13px;border:2px solid var(--navy);background:#fff6e2;font:inherit;color:var(--navy)}
+  textarea{min-height:100px;resize:vertical}
+  form .btn{background:var(--navy);color:var(--amber)}
+  .ok{display:none;grid-column:1/-1;background:var(--navy);color:#fff;padding:14px;font-weight:600}
+  footer{border-top:1px solid var(--steel);padding:40px 0 90px;color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .demo{position:fixed;left:14px;bottom:14px;z-index:99;background:#fff;color:#111;font:500 12px Archivo,sans-serif;padding:8px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+  .demo a{color:#1f9d55;text-decoration:underline}
+  @media(max-width:900px){.hero,.quote{grid-template-columns:1fr}.hero .l{padding:50px 0}.hero .r{min-height:320px}.services,.grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.links a:not(.btn){display:none}.quote{padding:32px 22px}}
+  @media(max-width:600px){.services,.grid,.steps,form{grid-template-columns:1fr}.stats{gap:24px}.links .btn{padding:10px 12px;font-size:.72rem}.brand{font-size:.92rem}.brand .tri{display:none}}
+  @media(max-width:560px){.dk-bar span{display:none}}
+</style>
+</head>
+<body>
+<div class="dk-bar" style="position:relative;z-index:1000;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 16px;background:#0d0f0e;color:#e9efea;font:500 13px/1.3 system-ui,-apple-system,'Segoe UI',sans-serif;border-bottom:2px solid #3ddc84">
+  <a href="../index.html#portfolio" style="display:inline-flex;align-items:center;gap:8px;background:#3ddc84;color:#04120a;font-weight:700;padding:7px 14px;border-radius:999px;text-decoration:none;white-space:nowrap">← Back to danbwebdev.online</a>
+  <span style="opacity:.75;text-align:right">Sample site for a made-up business · built by Daniel Banuelos</span>
+</div>
+<div class="topbar"><div class="wrap"><span>📞 (02) 8555 0192 · Mon–Sat 8am–6pm</span><span>Licensed &amp; insured contractor · Serving Luzon since 2011</span></div></div>
+<header><nav class="wrap">
+  <a href="#" class="brand"><span class="tri"></span>BAYANIHAN <b>BUILDERS</b></a>
+  <div class="links"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#process">Process</a><a class="btn" href="#quote">Free estimate</a></div>
+</nav></header>
+
+<div class="wrap hero">
+  <div class="l">
+    <div class="kicker">Construction &amp; renovation</div>
+    <h1>We build homes that <span>last generations.</span></h1>
+    <p>From your first bungalow to a three-storey commercial building, our team handles design, permits and construction — on time and on budget.</p>
+    <div class="ctas"><a class="btn" href="#quote">Get a free estimate →</a><a class="btn ghost" href="#projects">See our projects</a></div>
+    <div class="stats"><div><b>120+</b><span>Projects completed</span></div><div><b>15</b><span>Years building</span></div><div><b>4.9★</b><span>Client rating</span></div></div>
+  </div>
+  <div class="r"><div class="crane"></div><div class="house"><div class="roof"></div><div class="body"><div class="win w1"></div><div class="win w2"></div><div class="door"></div></div></div></div>
+</div>
+
+<section id="services"><div class="wrap">
+  <div class="head"><h2>What we build</h2><p>One team for the whole job, so you never have to chase five different contractors.</p></div>
+  <div class="services">
+    <div class="svc"><div class="n">01</div><h3>New home construction</h3><p>Bungalows, two-storey homes and townhouses built from the ground up.</p></div>
+    <div class="svc"><div class="n">02</div><h3>Renovation</h3><p>Kitchens, bathrooms, extensions and full home makeovers.</p></div>
+    <div class="svc"><div class="n">03</div><h3>Commercial builds</h3><p>Shops, offices, warehouses and small apartment buildings.</p></div>
+    <div class="svc"><div class="n">04</div><h3>Design &amp; permits</h3><p>Architectural plans, structural design and building permits handled for you.</p></div>
+    <div class="svc"><div class="n">05</div><h3>Roofing &amp; waterproofing</h3><p>Typhoon-ready roofs and leak repairs that actually stay fixed.</p></div>
+    <div class="svc"><div class="n">06</div><h3>Interior fit-out</h3><p>Ceilings, flooring, cabinetry and finishing for move-in-ready spaces.</p></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="head"><h2>Recent projects</h2><p>A few builds from the last couple of years.</p></div>
+  <div class="filters">
+    <button class="on" data-f="all">All</button><button data-f="home">Homes</button><button data-f="reno">Renovation</button><button data-f="comm">Commercial</button>
+  </div>
+  <div class="grid">
+    <div class="proj" data-c="home" style="--c:#2c3a4a"><div class="shape" style="background:linear-gradient(180deg,#8fb3d9 0 55%,#4f6b3a 55%);"></div><div class="shape" style="left:20%;right:20%;top:30%;bottom:20%;background:#e9e1d1;clip-path:polygon(0 30%,50% 0,100% 30%,100% 100%,0 100%)"></div><div class="cap"><small>Home · Antipolo</small><h3>Two-storey family home</h3></div></div>
+    <div class="proj" data-c="comm" style="--c:#24303d"><div class="shape" style="background:linear-gradient(180deg,#f2b56b,#d97a3a)"></div><div class="shape" style="left:15%;right:15%;top:20%;bottom:0;background:repeating-linear-gradient(0deg,#2c3644 0 16px,#ffd88a 16px 22px)"></div><div class="cap"><small>Commercial · Pasig</small><h3>4-storey office building</h3></div></div>
+    <div class="proj" data-c="reno" style="--c:#2b2f36"><div class="shape" style="background:linear-gradient(135deg,#f3efe7,#cbbca5)"></div><div class="shape" style="left:10%;right:10%;top:55%;bottom:15%;background:#5b4636"></div><div class="shape" style="left:16%;width:20%;top:20%;height:26%;background:#b9d3e8"></div><div class="cap"><small>Renovation · Makati</small><h3>Condo kitchen remodel</h3></div></div>
+    <div class="proj" data-c="home" style="--c:#2a3a33"><div class="shape" style="background:linear-gradient(180deg,#ffd0a1 0 60%,#6f8f4e 60%)"></div><div class="shape" style="left:10%;right:30%;top:40%;bottom:20%;background:#fff;"></div><div class="shape" style="left:5%;right:25%;top:32%;height:10%;background:#7a4a26"></div><div class="cap"><small>Home · Tagaytay</small><h3>Modern bungalow</h3></div></div>
+    <div class="proj" data-c="comm" style="--c:#1f2833"><div class="shape" style="background:linear-gradient(180deg,#9ec5e8,#d8e7f3)"></div><div class="shape" style="left:8%;right:8%;top:45%;bottom:0;background:#3b4656"></div><div class="shape" style="left:8%;right:8%;top:45%;height:12%;background:var(--amber)"></div><div class="cap"><small>Commercial · Bulacan</small><h3>Warehouse &amp; loading bay</h3></div></div>
+    <div class="proj" data-c="reno" style="--c:#2a2d34"><div class="shape" style="background:linear-gradient(135deg,#e7eef2,#a9bcc8)"></div><div class="shape" style="left:20%;right:20%;top:30%;bottom:10%;background:#fff;border-radius:40% 40% 4px 4px"></div><div class="cap"><small>Renovation · Quezon City</small><h3>Master bathroom upgrade</h3></div></div>
+  </div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <div class="head"><h2>How we work</h2><p>Clear steps, written quotes and weekly progress photos.</p></div>
+  <div class="steps">
+    <div class="step"><h3>Site visit</h3><p>We visit, listen to what you need and take measurements. Free of charge.</p></div>
+    <div class="step"><h3>Design &amp; quote</h3><p>You get plans and a detailed, fixed written quote — no hidden costs.</p></div>
+    <div class="step"><h3>Build</h3><p>Our own crew builds it, with a site engineer on every project.</p></div>
+    <div class="step"><h3>Turnover</h3><p>Final walkthrough, cleanup and a 1-year workmanship warranty.</p></div>
+  </div>
+</div></section>
+
+<section id="quote" style="padding-top:20px"><div class="wrap">
+  <div class="quote">
+    <div>
+      <h2>Get a free estimate</h2>
+      <p>Tell us about your project and an engineer will call you within 2 working days.</p>
+      <ul><li>Free site visit within Metro Manila</li><li>Fixed written quote</li><li>1-year workmanship warranty</li></ul>
+    </div>
+    <form id="qf">
+      <div><label>Full name</label><input required></div>
+      <div><label>Mobile number</label><input required placeholder="09XX XXX XXXX"></div>
+      <div><label>Project type</label><select><option>New home</option><option>Renovation</option><option>Commercial</option><option>Roofing / repairs</option></select></div>
+      <div><label>Location</label><input placeholder="City / municipality"></div>
+      <div class="full"><label>Project details</label><textarea placeholder="Lot size, number of floors, timeline..."></textarea></div>
+      <div class="full"><button class="btn" type="submit">Request estimate →</button></div>
+      <div class="ok" id="ok">✓ Thanks! This is a demo site, so nothing was sent — but on a real site, your request would go straight to the team.</div>
+    </form>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>© 2026 Bayanihan Builders Construction Co.</span><span>Unit 3, Ortigas Ave. Ext., Pasig City · info@bayanihanbuilders.ph</span></div></footer>
+
+
+<script>
+  document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
+    document.querySelectorAll('.proj').forEach(p=>p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.c!==b.dataset.f));
+  });
+  document.getElementById('qf').onsubmit=e=>{e.preventDefault();document.getElementById('ok').style.display='block'};
+</script>
+</body>
+</html>

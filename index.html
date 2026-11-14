@@ -141,6 +141,10 @@
   .item-info .tag{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green)}
   .item-info h3{font-size:1.08rem;margin:4px 0 4px}
   .item-info p{font-size:.9rem;color:var(--muted)}
+  .item{position:relative}
+  .demo-link{display:inline-block;margin-top:10px;font-weight:700;font-size:.92rem;color:var(--green);text-decoration:none}
+  .demo-link::after{content:"";position:absolute;inset:0}
+  .item:hover .demo-link{text-decoration:underline}
   .folio-note{margin-top:20px;font-size:.92rem;color:var(--muted)}
 
   /* mini browser mockups */
@@ -164,6 +168,88 @@
   .s-row div{height:34px;border-radius:5px;background:var(--m-card)}
   .s-art{position:absolute;right:12px;top:34px;width:30%;height:92px;border-radius:8px;background:var(--m-art)}
   .s-art.circle{border-radius:50%;width:84px;height:84px}
+
+
+  /* ---- unique sample layouts ---- */
+  .site *{box-sizing:border-box}
+  .site .row{display:flex;align-items:center}
+  /* 1 café: centered, menu list */
+  .cafe{background:#f6efe6;color:#3b2a1e;text-align:center;padding:10px 14px}
+  .cafe .logo{font-family:Georgia,serif;font-style:italic;font-size:10px;letter-spacing:.04em}
+  .cafe .nav{display:flex;justify-content:center;gap:9px;font-size:6.5px;opacity:.7;margin:3px 0 8px}
+  .cafe .cup{width:46px;height:46px;border-radius:50%;margin:0 auto 6px;background:radial-gradient(circle at 50% 45%,#5a3216 0 38%,#f6efe6 39% 46%,#d9a46c 47%)}
+  .cafe h4{font-family:Georgia,serif;font-weight:400;font-size:15px;margin-bottom:6px;letter-spacing:0}
+  .cafe .menu{max-width:70%;margin:0 auto;text-align:left;font-size:7px}
+  .cafe .menu div{display:flex;gap:4px;padding:2px 0}
+  .cafe .menu i{flex:1;border-bottom:1px dotted #b8a089;transform:translateY(-2px)}
+  .cafe .pill{display:inline-block;margin-top:7px;font-size:6.5px;border:1px solid #3b2a1e;border-radius:99px;padding:3px 10px}
+  /* 2 construction: split + stats */
+  .build{background:#11161d;color:#f2f4f7;display:grid;grid-template-columns:1.1fr .9fr;height:100%}
+  .build .l{padding:10px 12px;display:flex;flex-direction:column}
+  .build .brand{font-size:8px;font-weight:800;letter-spacing:.08em}
+  .build .brand b{color:#f5a524}
+  .build h4{font-size:16px;line-height:1.05;margin:14px 0 6px;text-transform:uppercase;letter-spacing:-.01em}
+  .build h4 span{color:#f5a524}
+  .build p{font-size:6.5px;opacity:.65;line-height:1.4}
+  .build .q{margin-top:8px;align-self:flex-start;font-size:6.5px;font-weight:700;background:#f5a524;color:#11161d;padding:4px 9px}
+  .build .stats{margin-top:auto;display:flex;gap:12px;border-top:1px solid #2a3340;padding-top:6px}
+  .build .stats b{display:block;font-size:11px;color:#f5a524}
+  .build .stats span{font-size:5.5px;opacity:.6}
+  .build .r{background:repeating-linear-gradient(135deg,#1c242f 0 10px,#222c39 10px 20px);position:relative}
+  .build .r::after{content:"";position:absolute;inset:18px 14px;background:linear-gradient(160deg,#3a4656,#f5a524);clip-path:polygon(0 100%,0 40%,50% 0,100% 40%,100% 100%)}
+  /* 3 tours: full-bleed image + booking bar */
+  .tour{height:100%;position:relative;color:#fff;background:linear-gradient(180deg,#5cc8d7 0%,#9be3ea 45%,#f3d9a4 46%,#e9c98a 100%);text-align:center}
+  .tour::before{content:"";position:absolute;left:-10%;right:-10%;top:42%;height:22px;background:#2fa7b8;border-radius:50%;opacity:.8}
+  .tour .sun{position:absolute;top:22px;right:28px;width:22px;height:22px;border-radius:50%;background:#fff3c4}
+  .tour .nav{position:relative;display:flex;justify-content:space-between;padding:8px 12px;font-size:7.5px;font-weight:700}
+  .tour h4{position:relative;font-size:17px;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .tour p{position:relative;font-size:7px;opacity:.95}
+  .tour .book{position:absolute;left:14px;right:14px;bottom:16px;background:#fff;border-radius:7px;display:flex;align-items:center;gap:6px;padding:6px;color:#0b3a44;font-size:6.5px;text-align:left;box-shadow:0 6px 14px rgba(0,0,0,.18)}
+  .tour .book div{flex:1;border-right:1px solid #e3eef0;padding:0 4px}
+  .tour .book div small{display:block;font-size:5px;opacity:.55;text-transform:uppercase}
+  .tour .book b{background:#0f9fae;color:#fff;border-radius:5px;padding:5px 8px}
+  /* 4 dental: info strip, text + booking form card, icon row */
+  .dent{background:#fff;color:#14324a;height:100%}
+  .dent .strip{background:#2f80ed;color:#fff;font-size:5.5px;padding:3px 12px;display:flex;justify-content:space-between}
+  .dent .nav{display:flex;justify-content:space-between;padding:6px 12px;font-size:7.5px;font-weight:700}
+  .dent .nav span:last-child{font-weight:400;opacity:.6;font-size:6.5px}
+  .dent .main{display:grid;grid-template-columns:1fr 92px;gap:10px;padding:4px 12px}
+  .dent h4{font-size:13px;line-height:1.15;margin-bottom:5px}
+  .dent p{font-size:6.5px;opacity:.65;line-height:1.4}
+  .dent .form{background:#eef4fb;border-radius:7px;padding:7px;display:grid;gap:4px}
+  .dent .form small{font-size:6px;font-weight:700}
+  .dent .form i{height:9px;background:#fff;border-radius:3px;border:1px solid #d6e3f5}
+  .dent .form b{font-size:6px;background:#2f80ed;color:#fff;text-align:center;border-radius:3px;padding:3px}
+  .dent .icons{display:flex;gap:6px;padding:8px 12px 0}
+  .dent .icons div{flex:1;text-align:center;font-size:5.5px;opacity:.75}
+  .dent .icons div::before{content:"";display:block;width:16px;height:16px;border-radius:50%;margin:0 auto 3px;background:#d8e7fb}
+  /* 5 photographer: masonry grid */
+  .photo-site{background:#fafafa;color:#111;padding:8px 10px;height:100%}
+  .photo-site .nav{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+  .photo-site .nav b{font-family:Georgia,serif;font-weight:400;font-size:11px;letter-spacing:.02em}
+  .photo-site .nav span{font-size:6px;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+  .photo-site .grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:26px;gap:4px}
+  .photo-site .grid i{display:block;border-radius:2px}
+  .photo-site .grid i:nth-child(1){grid-row:span 3;background:linear-gradient(160deg,#cfcfcf,#555)}
+  .photo-site .grid i:nth-child(2){grid-row:span 2;background:linear-gradient(200deg,#8a8a8a,#2b2b2b)}
+  .photo-site .grid i:nth-child(3){background:#bdbdbd}
+  .photo-site .grid i:nth-child(4){grid-row:span 3;background:linear-gradient(180deg,#e2e2e2,#777)}
+  .photo-site .grid i:nth-child(5){grid-row:span 2;background:linear-gradient(120deg,#999,#3a3a3a)}
+  .photo-site .grid i:nth-child(6){background:#6d6d6d}
+  .photo-site .grid i:nth-child(7){background:linear-gradient(90deg,#d6d6d6,#a3a3a3)}
+  /* 6 gym: bold type + pricing tiers */
+  .gym{background:#0c0c0c;color:#fff;height:100%;padding:8px 12px;overflow:hidden;position:relative}
+  .gym .nav{display:flex;justify-content:space-between;font-size:8px;font-weight:900;letter-spacing:.1em}
+  .gym .nav span{color:#d4ff3a}
+  .gym .nav em{font-style:normal;font-weight:500;font-size:6.5px;opacity:.7;letter-spacing:.06em}
+  .gym h4{font-size:24px;line-height:.9;font-weight:900;text-transform:uppercase;font-style:italic;margin:8px 0 4px;letter-spacing:-.03em}
+  .gym h4 span{color:#d4ff3a}
+  .gym .band{position:absolute;right:-30px;top:30px;transform:rotate(-12deg);background:#d4ff3a;color:#0c0c0c;font-size:7px;font-weight:900;padding:3px 40px;letter-spacing:.08em}
+  .gym .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:8px}
+  .gym .tiers div{border:1px solid #2a2a2a;border-radius:5px;padding:5px;font-size:6px}
+  .gym .tiers div b{display:block;font-size:11px;margin-top:2px}
+  .gym .tiers div.hot{border-color:#d4ff3a;background:#161b00}
+  .gym .tiers div.hot b{color:#d4ff3a}
 
   /* testimonials (fill with real reviews, then remove the hidden attribute) */
   .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -327,7 +413,7 @@
       <div class="head">
         <div class="hand">sample work</div>
         <h2>The kind of sites I can build for you.</h2>
-        <p>These are sample designs to show different styles: landing pages, company websites and portfolios. Yours will be made around your own business and brand.</p>
+        <p>These are sample sites for made-up businesses, built to show different styles: landing pages, company websites and portfolios. Yours will be made around your own business and brand.</p>
       </div>
       <div class="filters" role="group" aria-label="Filter samples">
         <button class="on" data-f="all">All</button>
@@ -337,79 +423,49 @@
       </div>
       <div class="folio">
       <article class="item" data-cat="landing">
-        <div class="mock"><div class="frame" style="--m-bg:#f6efe6;--m-ink:#3b2a1e;--m-acc:#b5642c;--m-on:#fff;--m-card:#eadccb;--m-art:linear-gradient(135deg,#d9a46c,#7a4a26)">
+        <div class="mock"><div class="frame">
           <div class="bar"><i></i><i></i><i></i><span>kapehansakanto.com</span></div>
-          <div class="site">
-            <div class="s-nav"><span>☕ Kapehan</span><span class="lk"><span>Home</span><span>About</span><span>Services</span><span class="cta">Order</span></span></div>
-            <div class="s-art"></div>
-            <div class="s-hero"><div class="k">Since 2019 · Quezon City</div><h4>Good coffee, slow mornings.</h4><p>Locally roasted beans and pandesal baked fresh every day.</p><div class="s-btns"><b>See menu</b><b>Visit us</b></div></div>
-            <div class="s-row"><div></div><div></div><div></div></div>
-          </div>
+          <div class="site"><div class="cafe"><div class="logo">Kapehan sa Kanto</div><div class="nav"><span>Menu</span><span>Story</span><span>Visit</span></div><div class="cup"></div><h4>Good coffee, slow mornings.</h4><div class="menu"><div>Kapeng barako<i></i>₱95</div><div>Spanish latte<i></i>₱140</div><div>Ube pandesal<i></i>₱45</div></div><span class="pill">Open 7am – 9pm</span></div></div>
         </div></div>
-        <div class="item-info"><span class="tag">Landing page</span><h3>Kapehan sa Kanto</h3><p>A cozy neighborhood café page with the menu, opening hours and a "find us" map.</p></div>
+        <div class="item-info"><span class="tag">Landing page</span><h3>Kapehan sa Kanto</h3><p>A cozy neighborhood café page with the menu, opening hours and a "find us" map.</p><a class="demo-link" href="samples/kapehan.html">View live demo →</a></div>
       </article>
       <article class="item" data-cat="company">
-        <div class="mock"><div class="frame" style="--m-bg:#11161d;--m-ink:#f2f4f7;--m-acc:#f5a524;--m-on:#11161d;--m-card:#1c242f;--m-art:linear-gradient(160deg,#2b3644,#f5a524)">
+        <div class="mock"><div class="frame">
           <div class="bar"><i></i><i></i><i></i><span>bayanihanbuilders.ph</span></div>
-          <div class="site">
-            <div class="s-nav"><span>▲ BAYANIHAN</span><span class="lk"><span>Home</span><span>About</span><span>Services</span><span class="cta">Get quote</span></span></div>
-            <div class="s-art"></div>
-            <div class="s-hero"><div class="k">Construction & renovation</div><h4>We build homes that last generations.</h4><p>Residential and commercial projects across Luzon.</p><div class="s-btns"><b>Free estimate</b><b>Our work</b></div></div>
-            <div class="s-row"><div></div><div></div><div></div></div>
-          </div>
+          <div class="site"><div class="build"><div class="l"><div class="brand">▲ BAYANIHAN <b>BUILDERS</b></div><h4>We build homes that <span>last.</span></h4><p>Residential &amp; commercial construction across Luzon.</p><span class="q">GET A FREE ESTIMATE →</span><div class="stats"><div><b>120+</b><span>Projects</span></div><div><b>15</b><span>Years</span></div><div><b>4.9★</b><span>Rating</span></div></div></div><div class="r"></div></div></div>
         </div></div>
-        <div class="item-info"><span class="tag">Company website</span><h3>Bayanihan Builders</h3><p>A multi-page site for a construction firm: services, past projects and a quote request form.</p></div>
+        <div class="item-info"><span class="tag">Company website</span><h3>Bayanihan Builders</h3><p>A multi-page site for a construction firm: services, past projects and a quote request form.</p><a class="demo-link" href="samples/bayanihan.html">View live demo →</a></div>
       </article>
       <article class="item" data-cat="landing">
-        <div class="mock"><div class="frame" style="--m-bg:#e9f7f8;--m-ink:#0b3a44;--m-acc:#0f9fae;--m-on:#fff;--m-card:#cdebed;--m-art:linear-gradient(180deg,#7fd6de,#0f9fae)">
+        <div class="mock"><div class="frame">
           <div class="bar"><i></i><i></i><i></i><span>islandhoptours.com</span></div>
-          <div class="site">
-            <div class="s-nav"><span>🏝 IslandHop</span><span class="lk"><span>Home</span><span>About</span><span>Services</span><span class="cta">Book now</span></span></div>
-            <div class="s-art circle"></div>
-            <div class="s-hero"><div class="k">El Nido · Coron · Siargao</div><h4>Your island adventure starts here.</h4><p>Small-group tours with local guides and hidden beaches.</p><div class="s-btns"><b>Book a tour</b><b>Packages</b></div></div>
-            <div class="s-row"><div></div><div></div><div></div></div>
-          </div>
+          <div class="site"><div class="tour"><div class="sun"></div><div class="nav"><span>🏝 IslandHop</span><span>Tours · About · Book</span></div><h4>Find your island.</h4><p>Small-group tours in El Nido, Coron &amp; Siargao</p><div class="book"><div><small>Where</small>El Nido</div><div><small>When</small>Dec 12</div><div><small>Guests</small>2</div><b>Search</b></div></div></div>
         </div></div>
-        <div class="item-info"><span class="tag">Landing page</span><h3>Island Hop Tours</h3><p>A booking-focused page for a tour operator with packages and a "book now" button.</p></div>
+        <div class="item-info"><span class="tag">Landing page</span><h3>Island Hop Tours</h3><p>A booking-focused page for a tour operator with packages and a "book now" button.</p><a class="demo-link" href="samples/islandhop.html">View live demo →</a></div>
       </article>
       <article class="item" data-cat="company">
-        <div class="mock"><div class="frame" style="--m-bg:#ffffff;--m-ink:#14324a;--m-acc:#2f80ed;--m-on:#fff;--m-card:#eef4fb;--m-art:linear-gradient(135deg,#cfe2fb,#2f80ed)">
+        <div class="mock"><div class="frame">
           <div class="bar"><i></i><i></i><i></i><span>smiledentalclinic.ph</span></div>
-          <div class="site">
-            <div class="s-nav"><span>✚ Smile Dental</span><span class="lk"><span>Home</span><span>About</span><span>Services</span><span class="cta">Book visit</span></span></div>
-            <div class="s-art"></div>
-            <div class="s-hero"><div class="k">Family dentistry</div><h4>Healthy smiles for the whole family.</h4><p>Gentle care, modern equipment, weekend appointments.</p><div class="s-btns"><b>Book appointment</b><b>Services</b></div></div>
-            <div class="s-row"><div></div><div></div><div></div></div>
-          </div>
+          <div class="site"><div class="dent"><div class="strip"><span>📞 (02) 8123 4567</span><span>Open Sat &amp; Sun</span></div><div class="nav"><span>✚ Smile Dental</span><span>Services · Dentists · Contact</span></div><div class="main"><div><h4>Healthy smiles for the whole family.</h4><p>Gentle care with modern equipment. Book online in under a minute.</p></div><div class="form"><small>Book a visit</small><i></i><i></i><b>Book now</b></div></div><div class="icons"><div>Cleaning</div><div>Braces</div><div>Whitening</div><div>Implants</div></div></div></div>
         </div></div>
-        <div class="item-info"><span class="tag">Company website</span><h3>Smile Dental Clinic</h3><p>A clean, trustworthy clinic site with services, the dentists and online appointment booking.</p></div>
+        <div class="item-info"><span class="tag">Company website</span><h3>Smile Dental Clinic</h3><p>A clean, trustworthy clinic site with services, the dentists and online appointment booking.</p><a class="demo-link" href="samples/smiledental.html">View live demo →</a></div>
       </article>
       <article class="item" data-cat="portfolio">
-        <div class="mock"><div class="frame" style="--m-bg:#fafafa;--m-ink:#111;--m-acc:#111;--m-on:#fff;--m-card:#e6e6e6;--m-art:linear-gradient(135deg,#bbb,#444)">
+        <div class="mock"><div class="frame">
           <div class="bar"><i></i><i></i><i></i><span>andreacruz.photo</span></div>
-          <div class="site">
-            <div class="s-nav"><span>Andrea Cruz</span><span class="lk"><span>Home</span><span>About</span><span>Services</span><span class="cta">Contact</span></span></div>
-            <div class="s-art"></div>
-            <div class="s-hero"><div class="k">Wedding & portrait photography</div><h4>Moments, kept honestly.</h4><p>Based in Cebu, available for travel.</p><div class="s-btns"><b>View gallery</b><b>Inquire</b></div></div>
-            <div class="s-row"><div></div><div></div><div></div></div>
-          </div>
+          <div class="site"><div class="photo-site"><div class="nav"><b>Andrea Cruz</b><span>Work · About · Contact</span></div><div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
         </div></div>
-        <div class="item-info"><span class="tag">Portfolio</span><h3>Andrea Cruz — Photographer</h3><p>A minimal portfolio with a photo grid, about section and booking inquiries.</p></div>
+        <div class="item-info"><span class="tag">Portfolio</span><h3>Andrea Cruz — Photographer</h3><p>A minimal portfolio with a photo grid, about section and booking inquiries.</p><a class="demo-link" href="samples/andreacruz.html">View live demo →</a></div>
       </article>
       <article class="item" data-cat="landing">
-        <div class="mock"><div class="frame" style="--m-bg:#0c0c0c;--m-ink:#fff;--m-acc:#d4ff3a;--m-on:#0c0c0c;--m-card:#1b1b1b;--m-art:linear-gradient(135deg,#d4ff3a,#3a4a00)">
+        <div class="mock"><div class="frame">
           <div class="bar"><i></i><i></i><i></i><span>fitlabgym.com</span></div>
-          <div class="site">
-            <div class="s-nav"><span>FITLAB</span><span class="lk"><span>Home</span><span>About</span><span>Services</span><span class="cta">Join</span></span></div>
-            <div class="s-art"></div>
-            <div class="s-hero"><div class="k">First month 50% off</div><h4>Stronger starts today.</h4><p>24/7 access, classes and personal coaches.</p><div class="s-btns"><b>Claim offer</b><b>Tour the gym</b></div></div>
-            <div class="s-row"><div></div><div></div><div></div></div>
-          </div>
+          <div class="site"><div class="gym"><div class="nav"><b>FIT<span>LAB</span></b><em>JOIN NOW →</em></div><div class="band">50% OFF FIRST MONTH</div><h4>Stronger<br><span>starts</span><br>today.</h4><div class="tiers"><div>Basic<b>₱999</b></div><div class="hot">Pro<b>₱1,499</b></div><div>Elite<b>₱2,199</b></div></div></div></div>
         </div></div>
-        <div class="item-info"><span class="tag">Landing page</span><h3>FitLab Gym</h3><p>A bold promo page for a gym's membership offer with pricing and a sign-up form.</p></div>
+        <div class="item-info"><span class="tag">Landing page</span><h3>FitLab Gym</h3><p>A bold promo page for a gym's membership offer with pricing and a sign-up form.</p><a class="demo-link" href="samples/fitlab.html">View live demo →</a></div>
       </article>
       </div>
-      <p class="folio-note">💡 Like one of these styles? Mention it when you message me and I'll use it as a starting point.</p>
+      <p class="folio-note">💡 Click any sample to open the full demo site. Like one of the styles? Mention it when you message me and I'll use it as a starting point.</p>
     </div>
   </section>
 

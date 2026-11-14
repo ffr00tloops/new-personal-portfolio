@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Cruz — Photographer (sample site)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#111;--muted:#777;--line:#e6e6e6;--bg:#fafafa}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,sans-serif;font-weight:300;background:var(--bg);color:var(--ink);line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+  .serif{font-family:"Cormorant Garamond",serif}
+  header{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 24px}
+  .name{font-family:"Cormorant Garamond",serif;font-size:2rem;letter-spacing:.02em}
+  .links{display:flex;gap:30px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+  .links a{color:var(--muted)}.links a:hover{color:var(--ink)}
+  .intro{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;padding:30px 0 36px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .intro h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(2.4rem,5.5vw,4.4rem);line-height:1.05;max-width:760px}
+  .intro h1 em{color:var(--muted)}
+  .filters{display:flex;gap:20px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+  .filters button{background:none;border:none;font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--muted);cursor:pointer;padding:4px 0;border-bottom:1px solid transparent}
+  .filters button.on{color:var(--ink);border-color:var(--ink)}
+  .gallery{columns:3;column-gap:14px;padding:36px 0 80px}
+  .ph{break-inside:avoid;margin-bottom:14px;cursor:zoom-in;position:relative;overflow:hidden}
+  .ph.hide{display:none}
+  .ph .img{width:100%;transition:transform .6s ease}
+  .ph:hover .img{transform:scale(1.03)}
+  .ph figcaption{position:absolute;left:12px;bottom:10px;color:#fff;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:.3s;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+  .ph:hover figcaption{opacity:1}
+  section{padding:90px 0;border-top:1px solid var(--line)}
+  .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+  .portrait{aspect-ratio:3/4;background:linear-gradient(180deg,#d8d8d8 0%,#9a9a9a 60%,#4a4a4a 100%);position:relative}
+  .portrait::after{content:"";position:absolute;left:30%;right:30%;top:18%;height:30%;border-radius:50%;background:rgba(255,255,255,.25)}
+  .about h2,.pk h2,.contact h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin-bottom:20px}
+  .about p{color:#444;margin-bottom:14px;max-width:560px}
+  .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:block}
+  .pkgs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+  .pkg{padding:28px 26px 30px 0;border-right:1px solid var(--line)}
+  .pkg+.pkg{padding-left:26px}
+  .pkg:last-child{border-right:none}
+  .pkg h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.6rem}
+  .pkg .pr{font-size:.9rem;color:var(--muted);margin:2px 0 14px}
+  .pkg ul{list-style:none;font-size:.92rem;color:#444}
+  .pkg li{padding:5px 0;border-bottom:1px solid var(--line)}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+  .contact p{color:#444;margin-bottom:10px}
+  form{display:grid;gap:22px}
+  input,select,textarea{width:100%;border:none;border-bottom:1px solid #bbb;background:transparent;padding:10px 0;font:inherit;color:var(--ink);outline:none}
+  input:focus,textarea:focus,select:focus{border-color:var(--ink)}
+  textarea{min-height:90px;resize:vertical}
+  .btn{justify-self:start;background:var(--ink);color:#fff;border:none;padding:14px 30px;font:inherit;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+  .ok{display:none;font-style:italic;color:#444}
+  footer{padding:30px 0 90px;display:flex;justify-content:space-between;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);flex-wrap:wrap;gap:12px}
+  .lb{position:fixed;inset:0;background:rgba(10,10,10,.94);display:none;place-items:center;z-index:50;padding:40px}
+  .lb.on{display:grid}
+  .lb .img{width:min(80vw,900px);height:min(75vh,640px)}
+  .lb p{color:#ccc;text-align:center;margin-top:14px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+  .lb button{position:absolute;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;padding:10px}
+  .lb .x{top:16px;right:22px}.lb .prev{left:16px;top:50%}.lb .next{right:16px;top:50%}
+  .demo{position:fixed;left:14px;bottom:14px;z-index:99;background:#111;color:#fff;font:500 12px Inter,sans-serif;padding:8px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+  .demo a{color:#7ee2a8;text-decoration:underline}
+  @media(max-width:860px){.gallery{columns:2}.about,.contact{grid-template-columns:1fr}.pkgs{grid-template-columns:1fr}.pkg,.pkg+.pkg{padding:22px 0;border-right:none;border-bottom:1px solid var(--line)}.links{gap:16px}}
+  @media(max-width:520px){.gallery{columns:1}header{flex-direction:column;gap:8px}}
+  @media(max-width:560px){.dk-bar span{display:none}}
+</style>
+</head>
+<body>
+<div class="dk-bar" style="position:relative;z-index:1000;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 16px;background:#0d0f0e;color:#e9efea;font:500 13px/1.3 system-ui,-apple-system,'Segoe UI',sans-serif;border-bottom:2px solid #3ddc84">
+  <a href="../index.html#portfolio" style="display:inline-flex;align-items:center;gap:8px;background:#3ddc84;color:#04120a;font-weight:700;padding:7px 14px;border-radius:999px;text-decoration:none;white-space:nowrap">← Back to danbwebdev.online</a>
+  <span style="opacity:.75;text-align:right">Sample site for a made-up business · built by Daniel Banuelos</span>
+</div>
+<div class="wrap">
+  <header><a href="#" class="name">Andrea Cruz</a><nav class="links"><a href="#work">Work</a><a href="#about">About</a><a href="#packages">Packages</a><a href="#contact">Contact</a></nav></header>
+  <div class="intro" id="work">
+    <h1>Weddings, portraits &amp; travel — <em>moments, kept honestly.</em></h1>
+    <div class="filters">
+      <button class="on" data-f="all">All</button><button data-f="wedding">Weddings</button><button data-f="portrait">Portraits</button><button data-f="travel">Travel</button>
+    </div>
+  </div>
+  <div class="gallery" id="gallery"></div>
+</div>
+
+<section id="about"><div class="wrap about">
+  <div class="portrait"></div>
+  <div>
+    <span class="label">About</span>
+    <h2>I'm Andrea — a photographer based in Cebu.</h2>
+    <p>For eight years I've photographed weddings, families and the places in between. My style is quiet and natural: real laughter, soft light and very little posing.</p>
+    <p>I travel anywhere in the Philippines, and I'll happily tag along to your elopement in the mountains or a sunrise shoot on the beach.</p>
+    <p class="serif" style="font-size:1.4rem;font-style:italic">— Andrea</p>
+  </div>
+</div></section>
+
+<section id="packages"><div class="wrap pk">
+  <span class="label">Packages</span>
+  <h2>Ways to work together</h2>
+  <div class="pkgs">
+    <div class="pkg"><h3>Portraits</h3><div class="pr">from ₱6,500</div><ul><li>1-hour session</li><li>1 location</li><li>30 edited photos</li><li>Online gallery</li></ul></div>
+    <div class="pkg"><h3>Elopement</h3><div class="pr">from ₱28,000</div><ul><li>Up to 4 hours</li><li>2 locations</li><li>200+ edited photos</li><li>Sneak peek in 48 hours</li></ul></div>
+    <div class="pkg"><h3>Full wedding</h3><div class="pr">from ₱65,000</div><ul><li>Prep to reception</li><li>Second shooter</li><li>600+ edited photos</li><li>Printed album</li></ul></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <div>
+    <span class="label">Contact</span>
+    <h2>Tell me about your day.</h2>
+    <p>I take on a limited number of weddings each year, so I recommend reaching out 6–12 months ahead.</p>
+    <p>hello@andreacruz.photo<br>@andreacruz.photo on Instagram</p>
+  </div>
+  <form id="f">
+    <input placeholder="Your name" required>
+    <input type="email" placeholder="Email" required>
+    <select><option>Wedding</option><option>Elopement</option><option>Portraits</option><option>Something else</option></select>
+    <textarea placeholder="Date, location and a little about you"></textarea>
+    <button class="btn" type="submit">Send inquiry</button>
+    <p class="ok" id="ok">Thank you — I'll be in touch soon. (This is a demo site, so nothing was sent.)</p>
+  </form>
+</div></section>
+
+<div class="wrap"><footer><span>© 2026 Andrea Cruz Photography</span><span>Cebu, Philippines</span></footer></div>
+
+<div class="lb" id="lb"><button class="x" aria-label="Close">×</button><button class="prev" aria-label="Previous">‹</button><button class="next" aria-label="Next">›</button><div><div class="img" id="lbImg"></div><p id="lbCap"></p></div></div>
+
+
+<script>
+  // "Photos" are painted with gradients so the demo needs no image files.
+  const photos=[
+    ['wedding','Garden ceremony · Tagaytay',1.3,'linear-gradient(170deg,#f3efe8 0%,#d9d1c3 40%,#7f8a6a 75%,#47513a 100%)'],
+    ['travel','Kawasan Falls · Cebu',.75,'linear-gradient(180deg,#bfe3e6 0%,#7cc1c5 45%,#3f8e8f 75%,#24504f 100%)'],
+    ['portrait','Golden hour · Mactan',1.25,'radial-gradient(circle at 50% 35%,#f1c79a 0 18%,transparent 19%),linear-gradient(180deg,#f6a65b,#a3542b 70%,#3a1d10)'],
+    ['wedding','First dance · Manila',.8,'radial-gradient(circle at 30% 30%,rgba(255,220,150,.6) 0 8%,transparent 9%),radial-gradient(circle at 70% 25%,rgba(255,220,150,.5) 0 6%,transparent 7%),linear-gradient(180deg,#2b2320,#5b3f33 60%,#1a1412)'],
+    ['travel','Rice terraces · Batad',1.1,'repeating-linear-gradient(165deg,#5f8a3a 0 18px,#7aa64b 18px 36px),linear-gradient(#8bb6d6,#8bb6d6)'],
+    ['portrait','Studio · black & white',1.4,'radial-gradient(ellipse at 50% 40%,#d9d9d9 0 22%,transparent 23%),linear-gradient(180deg,#5c5c5c,#1d1d1d)'],
+    ['wedding','Beach vows · Bantayan',.7,'linear-gradient(180deg,#f7d8b5 0 35%,#9fd3dc 35% 60%,#f2e3c6 60%)'],
+    ['travel','Night market · Taipei',.9,'radial-gradient(circle at 20% 30%,#ffb347 0 6%,transparent 7%),radial-gradient(circle at 60% 20%,#ff5e5e 0 5%,transparent 6%),radial-gradient(circle at 80% 45%,#ffd36e 0 6%,transparent 7%),linear-gradient(180deg,#1b1f3a,#3a2445)'],
+    ['portrait','Family · Lahug',1,'linear-gradient(180deg,#e9e4da 0 55%,#b9a68a 55%),linear-gradient(#000,#000)'],
+    ['wedding','Getting ready',1.25,'linear-gradient(135deg,#faf6f0 0%,#ece3d6 50%,#c8b79d 100%)'],
+    ['travel','Sunset ferry · Bohol',.75,'linear-gradient(180deg,#ffcf8a 0%,#f07b5a 40%,#5b3a6b 70%,#21233f 100%)'],
+    ['portrait','Couple · Osmeña Peak',1.15,'linear-gradient(180deg,#cfe0ea 0 40%,#7c9a6f 40% 70%,#4f6648 70%)'],
+  ];
+  const g=document.getElementById('gallery');
+  photos.forEach((p,i)=>{const f=document.createElement('figure');f.className='ph';f.dataset.c=p[0];f.dataset.i=i;
+    f.innerHTML=`<div class="img" style="aspect-ratio:1/${p[2]};background:${p[3]}"></div><figcaption>${p[1]}</figcaption>`;g.appendChild(f)});
+  document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
+    document.querySelectorAll('.ph').forEach(p=>p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.c!==b.dataset.f));
+  });
+  const lb=document.getElementById('lb');let cur=0;
+  const visible=()=>[...document.querySelectorAll('.ph:not(.hide)')].map(x=>+x.dataset.i);
+  function show(i){cur=i;document.getElementById('lbImg').style.background=photos[i][3];document.getElementById('lbCap').textContent=photos[i][1];lb.classList.add('on')}
+  g.onclick=e=>{const f=e.target.closest('.ph');if(f)show(+f.dataset.i)};
+  function step(n){const v=visible(),k=v.indexOf(cur);show(v[(k+n+v.length)%v.length])}
+  lb.querySelector('.x').onclick=()=>lb.classList.remove('on');
+  lb.querySelector('.prev').onclick=e=>{e.stopPropagation();step(-1)};
+  lb.querySelector('.next').onclick=e=>{e.stopPropagation();step(1)};
+  lb.onclick=e=>{if(e.target===lb)lb.classList.remove('on')};
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+  document.getElementById('f').onsubmit=e=>{e.preventDefault();document.getElementById('ok').style.display='block'};
+</script>
+</body>
+</html>
